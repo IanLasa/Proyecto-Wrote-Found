@@ -1,0 +1,15 @@
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\bin\Debug\net6.0\Wrote&Found.exe
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\bin\Debug\net6.0\Wrote&Found.deps.json
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\bin\Debug\net6.0\Wrote&Found.runtimeconfig.json
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\bin\Debug\net6.0\Wrote&Found.dll
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\bin\Debug\net6.0\Wrote&Found.pdb
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.csproj.AssemblyReference.cache
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.GeneratedMSBuildEditorConfig.editorconfig
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.AssemblyInfoInputs.cache
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.AssemblyInfo.cs
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.csproj.CoreCompileInputs.cache
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.dll
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\refint\Wrote&Found.dll
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.pdb
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\Wrote&Found.genruntimeconfig.cache
+C:\datos\Documents\Proyecto_UT2_IanLasa\UT2Wrote&Found\WroteAndFound_Launcher\obj\Debug\net6.0\ref\Wrote&Found.dll
