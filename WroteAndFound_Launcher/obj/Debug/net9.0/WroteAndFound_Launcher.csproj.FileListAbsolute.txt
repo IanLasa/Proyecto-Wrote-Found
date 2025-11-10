@@ -1,0 +1,14 @@
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.AssemblyInfoInputs.cache
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.AssemblyInfo.cs
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.csproj.CoreCompileInputs.cache
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\bin\Debug\net9.0\WroteAndFound_Launcher.exe
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\bin\Debug\net9.0\WroteAndFound_Launcher.deps.json
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\bin\Debug\net9.0\WroteAndFound_Launcher.runtimeconfig.json
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\bin\Debug\net9.0\WroteAndFound_Launcher.dll
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\bin\Debug\net9.0\WroteAndFound_Launcher.pdb
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.dll
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\refint\WroteAndFound_Launcher.dll
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.pdb
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\WroteAndFound_Launcher.genruntimeconfig.cache
+C:\Users\ianla\Documents\Proyecto_UT2_IanLasa\WroteAndFound_Launcher\obj\Debug\net9.0\ref\WroteAndFound_Launcher.dll
