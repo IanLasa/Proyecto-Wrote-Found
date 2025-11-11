@@ -1,9 +1,10 @@
+using System.Formats.Tar;
+
 namespace WroteAndFound
 {
     class Program
     {
         static List<List<string>> Usuarios = new List<List<string>>();
-        static string[] menu = new string[10];
         static void Main(string[] args)
         {
             Console.WriteLine("");
@@ -12,10 +13,10 @@ namespace WroteAndFound
         }
         static void ejecutarPrograma()
         {
-            Console.Clear();
             bool exit = false;
             while (!exit)
             {
+                Console.Clear();
                 verMenu();
                 int opcion = pedirNumero("Escoge una opción ", 0, 8);
                 switch(opcion)
@@ -63,48 +64,37 @@ namespace WroteAndFound
             Console.WriteLine("       |                | |");
             Console.WriteLine("       --------------------");
             Console.WriteLine("");
-            menuBonito(8, "Menú");
+            string[] menuPrincipal = { "Catálogo de libros", "Crear un Usuario", "Coger un libro prestado", "Reservar un libro prestado", "Características de un libro", "Mirar préstamos en curso", "Devolver un libro", "Poner una reseña" };
+            menuBonito("Menú", menuPrincipal, 40);
+        }
+        // Ajustar Título menú
+        static string ajustarTituloMenu(string nombreMenu, int comoDeGrande)
+        {
+            int centrar = (comoDeGrande - nombreMenu.Length) / 2 - 1;
+            nombreMenu = nombreMenu.PadLeft(nombreMenu.Length + centrar).PadRight(comoDeGrande - 2);
+            return "║" + nombreMenu + "║";
         }
         // Ajustar la longitud opciones menú
-        static string ajustarOpcionesMenu(string ajustar)
+        static string ajustarOpcionesMenu(string ajustar, int numeroOpcion, int comoDeGrande)
         {
-            if (ajustar.Length > 39)
-            {
-                ajustar = ajustar.Substring(0, 39);
-            }
-            else
-            {
-                ajustar = ajustar.PadRight(39); // Rellena con espacios a la derecha
-            }
-                
-        return ajustar + "║";
+            ajustar = ajustar.PadRight(comoDeGrande); // Rellena con espacios a la derecha        
+            return "║   " + numeroOpcion + ". " + ajustar + "║";
         }
-        // Función para rellenar array para menú
-        static void rellenarArray(string opcion1, string opcion2, string opcion3, string opcion4, string opcion5, string opcion6, string opcion7, string opcion8, string opcion9, string opcion10)
-        {
-            menu[0] = opcion1;
-            menu[1] = opcion2;
-            menu[2] = opcion3;
-            menu[3] = opcion4;
-            menu[4] = opcion5;
-            menu[5] = opcion6;
-            menu[6] = opcion7;
-            menu[7] = opcion8;
-            menu[8] = opcion9;
-            menu[9] = opcion10;
-        }
+        
         // Función para hacer el menú bonito
 
-        static void menuBonito(int largo, string nombreMenu)
+        static void menuBonito(string nombreMenu, string[] menu, int ancho)
         {
-            rellenarArray("Catálogo de libros", "Crear un Usuario", "Coger un libro prestado", "Reservar un libro prestado", "Características de un libro", "Mirar préstamos en curso", "Devolver un libro", "Poner una reseña");
             Console.WriteLine("╔════════════════════════════╗");
-            Console.WriteLine(nombreMenu);
+            Console.WriteLine(ajustarTituloMenu(nombreMenu, ancho));
             Console.WriteLine("║                            ║");
-            for (int i = 0; i < largo; i++)
+            for (int i = 0; i < menu.Length; i++)
             {
-                Console.WriteLine(ajustarOpcionesMenu(menu[i]));
+                Console.WriteLine(ajustarOpcionesMenu(menu[i], i + 1, ancho));
             }
+            Console.WriteLine("║                            ║");
+            Console.WriteLine("╚════════════════════════════╝");
+
         }
         // Funcion para comprobar que el número que nos dan es
         static int pedirNumero(string pregunta, int x, int y)
@@ -117,7 +107,7 @@ namespace WroteAndFound
                 string entrada = Console.ReadLine();
 
                 // Comprueba que lo que escriba el usuario se puede convertir en un int.
-                if (int.TryParse(entrada, out numero) && numero >= 0 && numero <= 9)
+                if (int.TryParse(entrada, out numero) && numero >= x && numero <= y)
                 {
                     valido = true;
                 }
