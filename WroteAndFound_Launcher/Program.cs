@@ -4,21 +4,90 @@ namespace WroteAndFound
 {
     class Program
     {
+        // Variables Globales
         static List<List<string>> Usuarios = new List<List<string>>();
+        static List<List<string>> Libros = new List<List<string>>()
+        {
+            new List<string>() { "Cien años de soledad", "Gabriel García Márquez", "1967", "Realismo mágico" },
+            new List<string>() { "1984", "George Orwell", "1949", "Distopía" },
+            new List<string>() { "El Principito", "Antoine de Saint-Exupéry", "1943", "Fábula" },
+            new List<string>() { "Don Quijote de la Mancha", "Miguel de Cervantes", "1605", "Novela clásica" }
+        };
+        static bool salir = false;
+        static int opcion;
+
         static void Main(string[] args)
         {
             Console.WriteLine("");
             Console.WriteLine("------- ¡Bienvenido a la biblioteca Wrote&Found! -------");
             ejecutarPrograma();
         }
+
+
+        /// 
+        /// Complementos para funciones
+        /// 
+
+        // Funcion para comprobar que el número que nos dan es
+        static int pedirNumero(string pregunta, int x, int y, bool especial)
+        {
+            int numero;
+            bool valido = false;
+            do
+            {
+                Console.Write($"{pregunta}({x}-{y}): ");
+                string entrada = Console.ReadLine();
+
+                // Para casos especiales
+                if (especial && entrada == "")
+                {
+                    return entrada;
+                }
+
+                // Comprueba que lo que escriba el usuario se puede convertir en un int.
+                if (int.TryParse(entrada, out numero) && numero >= x && numero <= y)
+                {
+                    valido = true;
+                }
+                else
+                {
+                    Console.WriteLine($"{entrada} no es un número válido, vuelve a intentarlo.");
+                    Console.ReadKey();
+                }
+
+            } while (!valido);
+            return numero;
+
+        }
+
+        // Función para comprobar que hay libros
+        static bool hayLibros()
+        {
+            if (Libros.Count == 0) {
+                // Simplemente le pedí a ChatGPT que pusiese los emojis
+                Console.WriteLine("─────────────────────────────────────────────────────────");
+                Console.WriteLine("📭  Actualmente no hay libros en la biblioteca...");
+                Console.WriteLine("💨  ¡Parece que se han borrado todos! 😱");
+                Console.WriteLine("");
+                Console.WriteLine("✨  ¿Por qué no vas y añades uno nuevo? 📖");
+                Console.WriteLine("─────────────────────────────────────────────────────────");
+                Console.WriteLine("")
+                Console.WriteLine("Presiona una tecla para volver...")
+                Console.ReadKey();
+                return false;
+            } else {
+                return true;
+            }
+        }
+        
+
         static void ejecutarPrograma()
         {
-            bool exit = false;
-            while (!exit)
+            while (!salir)
             {
                 Console.Clear();
                 verMenu();
-                int opcion = pedirNumero("Escoge una opción ", 0, 8);
+                opcion = pedirNumero("Escoge una opción ", 0, 8);
                 switch(opcion)
                 {
                     case 0:
@@ -47,7 +116,7 @@ namespace WroteAndFound
                         break;
                     case 8:
                         Console.WriteLine("¡Gracias por venir a Wrote&Found! ¡Esperamos verte de nuevo!");
-                        exit = true;
+                        salir = true;
                         break;
                 }
             }
@@ -96,43 +165,90 @@ namespace WroteAndFound
             Console.WriteLine("╚════════════════════════════╝");
 
         }
-        // Funcion para comprobar que el número que nos dan es
-        static int pedirNumero(string pregunta, int x, int y)
-        {
-            int numero;
-            bool valido = false;
-            do
-            {
-                Console.Write($"{pregunta}({x}-{y}): ");
-                string entrada = Console.ReadLine();
 
-                // Comprueba que lo que escriba el usuario se puede convertir en un int.
-                if (int.TryParse(entrada, out numero) && numero >= x && numero <= y)
-                {
-                    valido = true;
-                }
-                else
-                {
-                    Console.WriteLine($"{entrada} no es un número válido, vuelve a intentarlo.");
-                    Console.ReadKey();
-                }
 
-            } while (!valido);
-            return numero;
 
-        }
+        /// OPCIÓN CATÁLOGO DE LIBROS
         static void catalogoLibros()
         {
-            Console.WriteLine("╔════════════════════════════╗");
-            Console.WriteLine("║      CATÁLOGO DE LIBROS    ║");
-            Console.WriteLine("║                            ║");
-            Console.WriteLine("║  1. Ver todos los libros   ║");
-            Console.WriteLine("║  2. Buscar por autor       ║");
-            Console.WriteLine("║  3. Añadir nuevo libro     ║");
-            Console.WriteLine("║  4. Volver al menú         ║");
-            Console.WriteLine("╚════════════════════════════╝");
+
+            static void menuCatalogoLibros()
+            {
+                Console.WriteLine("╔════════════════════════════╗");
+                Console.WriteLine("║      CATÁLOGO DE LIBROS    ║");
+                Console.WriteLine("║                            ║");
+                Console.WriteLine("║  1. Ver todos los libros   ║");
+                Console.WriteLine("║  2. Buscar por autor       ║");
+                Console.WriteLine("║  3. Añadir nuevo libro     ║");
+                Console.WriteLine("║  4. Volver al menú         ║");
+                Console.WriteLine("╚════════════════════════════╝");
+            }
 
         }
+
+        // Comprobar que hay libros
+
+
+        // Función ver libros
+        static void verLibros()
+        {
+            Console.Clear();
+            if (hayLibros)
+            {
+                do
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("╔════════════════════════════╗");
+                    for (int i = 0; i < Libros.Count; i++)
+                    {
+                        bool muchosLibros;
+                        Console.WriteLine($"║   📘 {i+1}. {Libros[i][1]}  ║");
+                        if ((i + 1) % 5 = 0)
+                        {
+                            // Por arreglar
+                            Console.WriteLine("║   ... Presiona intro para ver mas libros")
+                            Console.WriteLine("");
+                            muchosLibros = true
+
+                        } else {
+                            Console.WriteLine("║   ... No hay mas libros")
+                            Console.WriteLine("")
+                            muchosLibros = false;
+                        }
+
+                        Console.WriteLine("║      0. Salir")
+                        Console.WriteLine("╚════════════════════════════╝")
+                        Console.WriteLine("");
+                        Console.WriteLine("Puedes escribir el número del libro que quieres ver mas...")
+                        Console.WriteLine("")
+                        opcion = pedirNumero("¿Que quieres hacer?", 1, i + 1, muchosLibros)
+                        if (opcion <= 0 && opcion >= (i + 1))
+                        {
+                            verCaracteristicasLibro(opcion);
+                        }
+                    } 
+                } while (!salir)
+            }
+        }
+
+        // Ver características de los libros
+        static void verCaracteristicasLibro(int l)
+        {
+            Console.WriteLine("---------------------------------------")
+                Console.WriteLine($"📘 Libro {i + 1}:");
+            Console.WriteLine($"   Título: {Libros[l][0]}");
+            Console.WriteLine($"   Autor:  {Libros[l][1]}");
+            Console.WriteLine($"   Año:    {Libros[l][2]}");
+            Console.WriteLine($"   Género: {Libros[l][3]}");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine("Pulsa una tecla para volver")
+                Console.ReadKey();
+        }
+        
+
+        /// 
+        /// OPCIÓN CREAR CUENTA
+        /// 
         static void crearUsuario()
         {
             Console.Clear();
