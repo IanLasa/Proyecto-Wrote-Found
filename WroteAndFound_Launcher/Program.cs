@@ -3,6 +3,7 @@ namespace WroteAndFound
     class Program
     {
         // Variables Globales
+        static string[] menu = new string[10];
         static List<List<string>> Usuarios = new List<List<string>>();
         static List<List<string>> Libros = new List<List<string>>()
         {
@@ -56,6 +57,42 @@ namespace WroteAndFound
             } while (!valido);
             return numero;
 
+        }
+        
+        // Función para hacer el menú bonito
+        static void menuBonito(string nombreMenu, string[] menu, int ancho)
+        {
+            // Centrar el título
+            int centrar = (ancho - 2 - nombreMenu.Length) / 2;
+            string titulo = nombreMenu.PadLeft(nombreMenu.Length + centrar).PadRight(ancho - 2);
+
+            // Línea Superior
+            Console.WriteLine("╔" + new string('═', ancho - 2) + "╗");
+
+            // Poner el Título
+            Console.WriteLine($"║{titulo}║");
+
+            // Línea de espacio
+            Console.WriteLine("║" + new string(' ', ancho - 2) + "║");
+
+            for (int i = 0; i < menu.Length; i++)
+            {
+                string opcion = $"{i + 1}. {menu[i]}";
+                opcion = opcion.PadRight(ancho - 5); // Rellena con espacios a la derecha        
+                Console.WriteLine($"║   {opcion}║");
+            }
+            // Otro espacio
+            Console.WriteLine("║" + new string(' ', ancho - 2) + "║");
+
+            // Salir
+            string salir = "0. Salir";
+            Console.WriteLine($"║   {salir.PadRight(ancho - 5)}║");
+
+            // Última linea
+            Console.WriteLine("╚" + new string('═', ancho - 2) + "╝");
+
+            // Poner un espacio
+            Console.WriteLine("");
         }
 
         // Función para comprobar que hay libros
@@ -131,118 +168,78 @@ namespace WroteAndFound
             Console.WriteLine("       |                | |");
             Console.WriteLine("       --------------------");
             Console.WriteLine("");
-            string[] menuPrincipal = { "Catálogo de libros", "Crear un Usuario", "Coger un libro prestado", "Reservar un libro prestado", "Características de un libro", "Mirar préstamos en curso", "Devolver un libro", "Poner una reseña" };
-            menuBonito("Menú", menuPrincipal, 40);
+            menu = new string[] { "Catálogo de libros", "Crear un Usuario", "Coger un libro prestado", "Reservar un libro prestado", "Características de un libro", "Mirar préstamos en curso", "Devolver un libro", "Poner una reseña" };
+            menuBonito("MENÚ", menu, 37);
         }
-        // Ajustar Título menú
-        static string ajustarTituloMenu(string nombreMenu, int comoDeGrande)
-        {
-            int centrar = (comoDeGrande - nombreMenu.Length) / 2 - 1;
-            nombreMenu = nombreMenu.PadLeft(nombreMenu.Length + centrar).PadRight(comoDeGrande - 2);
-            return "║" + nombreMenu + "║";
-        }
-        // Ajustar la longitud opciones menú
-        static string ajustarOpcionesMenu(string ajustar, int numeroOpcion, int comoDeGrande)
-        {
-            ajustar = ajustar.PadRight(comoDeGrande); // Rellena con espacios a la derecha        
-            return "║   " + numeroOpcion + ". " + ajustar + "║";
-        }
-        
-        // Función para hacer el menú bonito
-
-        static void menuBonito(string nombreMenu, string[] menu, int ancho)
-        {
-            Console.WriteLine("╔════════════════════════════╗");
-            Console.WriteLine(ajustarTituloMenu(nombreMenu, ancho));
-            Console.WriteLine("║                            ║");
-            for (int i = 0; i < menu.Length; i++)
-            {
-                Console.WriteLine(ajustarOpcionesMenu(menu[i], i + 1, ancho));
-            }
-            Console.WriteLine("║                            ║");
-            Console.WriteLine("╚════════════════════════════╝");
-
-        }
-
-
 
         /// OPCIÓN CATÁLOGO DE LIBROS
         static void catalogoLibros()
         {
 
-            static void menuCatalogoLibros()
+            static void catalogoLibros()
             {
-                Console.WriteLine("╔════════════════════════════╗");
-                Console.WriteLine("║      CATÁLOGO DE LIBROS    ║");
-                Console.WriteLine("║                            ║");
-                Console.WriteLine("║  1. Ver todos los libros   ║");
-                Console.WriteLine("║  2. Buscar por autor       ║");
-                Console.WriteLine("║  3. Añadir nuevo libro     ║");
-                Console.WriteLine("║  4. Volver al menú         ║");
-                Console.WriteLine("╚════════════════════════════╝");
+                Console.Clear();
+                menu = new string[] { "Ver todos los libros", "Buscar por autor", "Añadir nuevo libro", "Volver al menú" };
+                menuBonito("CATÁLOGO DE LIBROS", menu, 37);
+                int opcion = pedirNumero("Escoge una opción ", 0, 4);
             }
-
-        }
-
-        // Comprobar que hay libros
-
-
-        // Función ver libros
-        static void verLibros()
-        {
-            Console.Clear();
-            if (hayLibros)
+          
+            // Función ver libros
+            static void verLibros()
             {
-                do
+                Console.Clear();
+                if (hayLibros)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine("╔════════════════════════════╗");
-                    for (int i = 0; i < Libros.Count; i++)
+                    do
                     {
-                        bool muchosLibros;
-                        Console.WriteLine($"║   📘 {i+1}. {Libros[i][1]}  ║");
-                        if ((i + 1) % 5 = 0)
-                        {
-                            // Por arreglar
-                            Console.WriteLine("║   ... Presiona intro para ver mas libros")
-                            Console.WriteLine("");
-                            muchosLibros = true
-
-                        } else {
-                            Console.WriteLine("║   ... No hay mas libros")
-                            Console.WriteLine("")
-                            muchosLibros = false;
-                        }
-
-                        Console.WriteLine("║      0. Salir")
-                        Console.WriteLine("╚════════════════════════════╝")
                         Console.WriteLine("");
-                        Console.WriteLine("Puedes escribir el número del libro que quieres ver mas...")
-                        Console.WriteLine("")
-                        opcion = pedirNumero("¿Que quieres hacer?", 1, i + 1, muchosLibros)
-                        if (opcion <= 0 && opcion >= (i + 1))
+                        Console.WriteLine("╔════════════════════════════╗");
+                        for (int i = 0; i < Libros.Count; i++)
                         {
-                            verCaracteristicasLibro(opcion);
-                        }
-                    } 
-                } while (!salir)
+                            bool muchosLibros;
+                            Console.WriteLine($"║   📘 {i+1}. {Libros[i][1]}  ║");
+                            if ((i + 1) % 5 = 0)
+                            {
+                                // Por arreglar
+                                Console.WriteLine("║   ... Presiona intro para ver mas libros")
+                                Console.WriteLine("");
+                                muchosLibros = true
+    
+                            } else {
+                                Console.WriteLine("║   ... No hay mas libros")
+                                Console.WriteLine("")
+                                muchosLibros = false;
+                            }
+    
+                            Console.WriteLine("║      0. Salir")
+                            Console.WriteLine("╚════════════════════════════╝")
+                            Console.WriteLine("");
+                            Console.WriteLine("Puedes escribir el número del libro que quieres ver mas...")
+                            Console.WriteLine("")
+                            opcion = pedirNumero("¿Que quieres hacer?", 1, i + 1, muchosLibros)
+                            if (opcion <= 0 && opcion >= (i + 1))
+                            {
+                                verCaracteristicasLibro(opcion);
+                            }
+                        } 
+                    } while (!salir)
+                }
+            }
+    
+            // Ver características de los libros
+            static void verCaracteristicasLibro(int l)
+            {
+                Console.WriteLine("---------------------------------------")
+                Console.WriteLine($"📘 Libro {i + 1}:");
+                Console.WriteLine($"   Título: {Libros[l][0]}");
+                Console.WriteLine($"   Autor:  {Libros[l][1]}");
+                Console.WriteLine($"   Año:    {Libros[l][2]}");
+                Console.WriteLine($"   Género: {Libros[l][3]}");
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine("Pulsa una tecla para volver")
+                Console.ReadKey();
             }
         }
-
-        // Ver características de los libros
-        static void verCaracteristicasLibro(int l)
-        {
-            Console.WriteLine("---------------------------------------")
-                Console.WriteLine($"📘 Libro {i + 1}:");
-            Console.WriteLine($"   Título: {Libros[l][0]}");
-            Console.WriteLine($"   Autor:  {Libros[l][1]}");
-            Console.WriteLine($"   Año:    {Libros[l][2]}");
-            Console.WriteLine($"   Género: {Libros[l][3]}");
-            Console.WriteLine("---------------------------------------");
-            Console.WriteLine("Pulsa una tecla para volver")
-                Console.ReadKey();
-        }
-        
 
         /// 
         /// OPCIÓN CREAR CUENTA
@@ -286,4 +283,5 @@ namespace WroteAndFound
     }
 
 } 
+
 
